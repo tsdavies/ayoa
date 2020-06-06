@@ -20,12 +20,16 @@ class Tasks {
 		return getByClassName('add-task').first();
 	}
 
-	get taskNameInput() {
-		return getById('task-name-input');
-	}
-
 	get closeTaskButton() {
 		return getByClassName('close-add-task');
+	}
+
+	get modalConfirmDeleteTaskButton() {
+		return cy.get('.confirm');
+	}
+
+	get todoTaskEntries() {
+		return cy.get('.task-list').first().find('li.pill-task-wrapper');
 	}
 
 	get taskCompletedButton() {
@@ -48,8 +52,8 @@ class Tasks {
 		return cy.get('[data-action=delete-task]');
 	}
 
-	get modalConfirmDeleteTaskButton() {
-		return cy.get('.confirm');
+	get taskNameInput() {
+		return getById('task-name-input');
 	}
 
 	visit() {

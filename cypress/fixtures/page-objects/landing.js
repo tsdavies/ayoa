@@ -17,16 +17,12 @@ class Landing {
 		return Landing.instance;
 	}
 
-	get closeOnBoardingButton() {
-		return getByClassName('dismiss-btn');
-	}
-
-	get tasksButton() {
-		return getById('header-planner');
-	}
-
 	get burgerMenuButton() {
 		return getByClassName('menu-burger');
+	}
+
+	get closeOnBoardingButton() {
+		return getByClassName('dismiss-btn');
 	}
 
 	get logoutButton() {
@@ -36,7 +32,11 @@ class Landing {
 	logout() {
 		cy.visit(LOGOUT_URL);
 	}
-	
+
+	get tasksButton() {
+		return getById('header-planner');
+	}
+
 	visit() {
 		cy.visit(LANDING_URL);
 	}

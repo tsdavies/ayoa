@@ -2,5 +2,6 @@
 	"env": {
 		"username": "YOUR_USERNAME",
 		"password": "YOUR_PASSWORD"
-	}
+	},
+	"testFiles": ["**/*.feature", "**/*.test.js"]
 }

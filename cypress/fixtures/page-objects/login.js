@@ -20,12 +20,12 @@ class Login {
 		return getByInputName('email');
 	}
 
-	get passwordInput() {
-		return getByInputName('password');
-	}
-
 	get loginButton() {
 		return cy.get('.nav-combo').click().first().contains('Log In');
+	}
+
+	get passwordInput() {
+		return getByInputName('password');
 	}
 
 	get signInWithEmailButton() {

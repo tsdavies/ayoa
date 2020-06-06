@@ -16,7 +16,11 @@
     "url": "https://github.com/tsdavies/ayoa/issues"
   },
   "homepage": "https://github.com/tsdavies/ayoa#readme",
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
   "devDependencies": {
-    "cypress": "^4.7.0"
+    "cypress": "^4.7.0",
+    "cypress-cucumber-preprocessor": "^2.4.0"
   }
 }

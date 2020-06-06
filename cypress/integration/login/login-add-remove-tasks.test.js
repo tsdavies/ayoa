@@ -1,4 +1,4 @@
-import { Landing, Login, Tasks } from '../fixtures/page-objects';
+import { Landing, Login, Tasks } from '../../fixtures/page-objects';
 
 const loginPage = Login.getInstance();
 const landingPage = Landing.getInstance();
@@ -22,6 +22,7 @@ context('Signs into the Application and performs some actions', () => {
 		loginPage.passwordInput.type(Cypress.env('password'));
 		loginPage.signInWithEmailButton.click();
 		//Assert I can see something on the main landing screen
+		landingPage.closeOnBoardingButton.should('be.visible');
 	});
 
 	it('Creates some tasks', () => {
@@ -30,22 +31,22 @@ context('Signs into the Application and performs some actions', () => {
 		cy.wait(1000);
 		tasksPage.addTaskButton.click();
 		tasksPage.taskNameInput.type('Automate a task{enter}');
-		//Assert list has new task and that task has correct content and that task is not complete
+		tasksPage.todoTaskEntries.should('have.length', 1);
 		tasksPage.taskNameInput.type('Add another task{enter}');
-		//Assert list has new task and that task has correct content and that task is not complete
+		tasksPage.todoTaskEntries.should('have.length', 2);
 		tasksPage.closeTaskButton.click();
 	});
 
 	it('Completes a task', () => {
 		tasksPage.taskCompletedButton.first().click();
-		//Assert task is complete and that styles are updated
+		tasksPage.todoTaskEntries.first().should('have.class', 'completed');
 	});
 
 	it('Deletes some tasks', () => {
 		deleteFirstTask();
-		//Assert list is list.length - 1
+		tasksPage.todoTaskEntries.should('have.length', 1);
 		deleteFirstTask();
-		//Assert list list is empty
+		tasksPage.todoTaskEntries.should('have.length', 0);
 	});
 
 	it('Signs me out', () => {
