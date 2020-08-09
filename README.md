@@ -1,6 +1,6 @@
 # ayoa
 
-Exercise AYOA interface using Cypress
+Exercise AYOA interface using Cypress.
 
 The project now includes a Cucumber abstration / preprocessor to enable a BDD approach to the testing. For flexibility I've enabled the Javascript and Feature files to co-exist.
 
